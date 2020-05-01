@@ -24,4 +24,29 @@ body{
     width: var(--mobile-width);
     height: 1000px;
     background: url("images/bg-intro-mobile.png");
+    background-color: var(--red);
+}
+
+#container{
+    width: 325px;
+    height: 1000px;
+    color: white;
+}
+
+#apresentation{
+    width: 325px;
+    margin-bottom: 50px;
+}
+
+#apresentation p{
+    text-align: justify
+}
+
+#tryIt{
+    background: var(--blue);
+    border-radius: 10px;
+    width: 325px;
+    height: 100px;
+    text-align: center;
+    justify-content: center;
 }
