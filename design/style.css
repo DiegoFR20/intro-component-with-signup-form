@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    --desktop-width: 1440px;
+    --mobile-width: 375px;
+    --red: hsl(0, 100%, 74%);
+    --green: hsl(154, 59%, 51%); 
+    --blue: hsl(248, 32%, 49%);
+    --darkBlue: hsl(249, 10%, 26%);
+    --grayishBlue: hsl(246, 25%, 77%);
+    font-size: 16px;
+}
+
+@font-face{
+    font-family: "Poppins";
+    src: url("https://font.google.com/specimen/Poppins");
+    font-weight: 400, 500, 600 ,700;
+}
+
+body{
+    width: var(--mobile-width);
+    height: 1000px;
+    background: url("images/bg-intro-mobile.png");
+}
