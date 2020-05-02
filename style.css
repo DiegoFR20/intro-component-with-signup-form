@@ -110,12 +110,17 @@ p{
 
 input{
     line-height: 3.5em;
-    border: 2px solid hsla(246, 25%, 77%, 0.2);
+    border: 1px solid hsla(246, 25%, 77%, 0.4);
     border-radius: 5px;
     margin: 7px 0;
     padding-left: 15px;
     width: 256px;
     font-family: "Poppins600";
+    outline: none;
+}
+
+input:focus{
+    border-color: hsla(249, 10%, 26%, 1);
 }
 
 #signUp{
@@ -201,7 +206,7 @@ input{
     }
 
     #apresentation h2{
-        margin: 150px 0 10px;
+        margin: 150px 0 35px;
         line-height: 1.10em;
         width: 405px;
         font-size: 48px;
@@ -258,9 +263,9 @@ input{
     }
 
     #signUp p{
-        margin-left: 18px;
+        margin-left: 36.5px;
         font-family: "Poppins500";
-        width: 400px;
+        width: 367px;
         font-size: 11px;
     }
 
