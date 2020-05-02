@@ -42,7 +42,6 @@ html{
     --darkBlue: hsl(249, 10%, 26%);
     --grayishBlue: hsl(246, 25%, 77%);
     font-size: 16px;
-    font-family: "Poppins400";
 }
 
 body{
@@ -69,7 +68,7 @@ p{
 }
 
 #container{
-    max-width: 325px;
+    min-width: 325px;
     color: white;
     display: flex;
     text-align: center;
@@ -92,8 +91,8 @@ p{
 #tryIt{
     background: var(--blue);
     border-radius: 8px;
-    max-width: 325px;
-    max-height: 90px;
+    min-width: 285px;
+    max-height: 50px;
     padding: 20px;
     margin-bottom: 20px;
     box-shadow: 0 7px 1px hsla(249, 10%, 26%, 0.25);
@@ -140,7 +139,7 @@ input{
     border: 0;
     border-radius: 7px;
     background: var(--green);
-    font-family: "Poppins400";
+    font-family: "Poppins500";
     font-size: 1em;
     box-shadow: 0 4px 1px hsla(154, 59%, 44%);
 }
@@ -161,4 +160,112 @@ input{
     color: var(--red);
     font-weight: 700;
     font-family: "Poppins700";
+}
+
+@media only screen and (min-width: 1440px){
+    html{
+        height: 800px;
+        margin: 0;
+        padding: 0;
+        width: var(--desktop-width);
+        background: white;
+    }
+
+    *{
+        margin: 0;
+        padding:0;
+    }
+
+    body{
+        margin: 0;
+        padding: 100px 150px;
+        width: 1140px;
+        height: 600px;
+        max-height: 800px;
+        background: url("images/bg-intro-desktop.png");
+        background-color: var(--red);
+    }
+    
+    #container{
+        margin: 0;
+        width: 1140px;
+        height: 600px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    #apresentation{
+        width: 570px;
+        margin: 0;
+        padding: 0;
+    }
+
+    #apresentation h2{
+        margin: 150px 0 10px;
+        line-height: 1.10em;
+        width: 405px;
+        font-size: 48px;
+    }
+
+    #apresentation p{
+        margin: 0;
+        width: 500px;
+        text-align: left;
+    }
+
+    #offer{
+        height: 600px;
+        width: 500px;
+    }
+
+    #tryIt{
+        min-height: 37.5px;
+        height: 37.5px;
+        padding: 0;
+        padding-top: 12.5px;
+        margin-bottom: 25px;
+    }
+
+    #tryIt p{
+        width: 320px;
+        margin: 0;
+        margin-left: 90px;
+        padding: 0;
+    }
+
+    form{
+        padding: 0;
+        margin: 0;
+    }
+
+    input{
+        padding-left: 30px;
+        margin: 5px 0 15px;
+        width: 396px;
+        height: 50px;
+    }
+    
+    #signUp{
+        width: 440px;
+        height: 405px;
+        margin: 0;
+        padding: 35px 30px 30px;
+    }
+
+    #signUp button{
+        width: 440px;
+        margin-bottom: 18px;
+    }
+
+    #signUp p{
+        margin-left: 18px;
+        font-family: "Poppins500";
+        width: 400px;
+        font-size: 11px;
+    }
+
+    #signUp a {
+        
+        font-family: "Poppins700";
+    }
 }
