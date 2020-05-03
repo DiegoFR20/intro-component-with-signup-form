@@ -1,26 +1,26 @@
 var contError = 0;
 
 function generateError(target) {
-    if (contError == 0) {
-        target.style.borderColor = "red";
-        errorDiv = document.createElement("div");
-        errorParagraph = document.createElement("p");
-        errorDiv.setAttribute("id", "error");
-        target.appendChild(errorDiv);
-        errorMessage = document.createTextNode(`${target.name} cannot be empty`);
-        errorParagraph.appendChild(errorMessage);
-        errorDiv.appendChild(errorParagraph);
-        errorIcon = document.createElement("img");
-        errorIcon.setAttribute("src", "images/icon-error.svg");
-        errorIcon.setAttribute("alt", "Error Icon");
-        errorDiv.appendChild(errorIcon);
-        setTimeout(() => {
-            target.style.borderColor = "";
-            target.removeChild(errorDiv);
-            contError=0;
-        }, 5000);
-    }
-    contError++;
+    console.log(target.name);
+    target.style.borderColor = "var(--red)";
+    errorDiv = document.createElement("div");
+    errorParagraph = document.createElement("p");
+    errorDiv.setAttribute("id", "error");
+    target.appendChild(errorDiv);
+    if (target.id == 'email') {
+        errorMessage = document.createTextNode(`Looks like this is not an ${target.id}`);
+    } else
+    errorMessage = document.createTextNode(`${target.name} cannot be empty`);
+    errorParagraph.appendChild(errorMessage);
+    errorDiv.appendChild(errorParagraph);
+    errorIcon = document.createElement("img");
+    errorIcon.setAttribute("src", "images/icon-error.svg");
+    errorIcon.setAttribute("alt", "Error Icon");
+    errorDiv.appendChild(errorIcon);
+    setTimeout(() => {
+        target.style.borderColor = "";
+        target.removeChild(errorDiv);
+    }, 5000);
 }
 
 function verifyInput(id) {
@@ -40,12 +40,9 @@ function validateEmail(email) {
 }
 
 function verifyEmail(email) {
-    if (email.value != "") {
-        if (validateEmail(email) == false) {
-            generateError(email);
-            event.preventDefault();
-        }else
-            email.style.borderColor = "";
-    } else
+    if (validateEmail(email) == false) {
+        generateError(email);
         event.preventDefault();
+    } else
+        email.style.borderColor = "";
 }

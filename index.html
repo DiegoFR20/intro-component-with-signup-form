@@ -41,20 +41,20 @@
         </p>
       </div>
       <div id="signUp" name="Sign up">
-        <form id="sign" name="form">
+        <form id="sign" name="form" onsubmit="
+            verifyInput(fName),
+            verifyInput(lName),
+            verifyEmail(email), 
+            verifyInput(password)">
           <label for="fName" name="First Name"></label>
           <input type="text" placeholder="First Name" id="fName" name="First Name">
           <label for="lName" name="Last Name"></label>
           <input type="text" placeholder="Last Name" id="lName" name="Last Name">
           <label for="email" name="Email"></label>
-          <input type="email" placeholder="Email Address" id="email" name="Email">
+          <input type="text" placeholder="Email Address" id="email" name="Email">
           <label for="password" name="Password"></label>
           <input type="password" placeholder="Password" id="password" name="Password">
-          <button type="submit" id="submit" value="Submit" onclick="
-            verifyInput(document.form.fName),
-            verifyInput(document.form.lName),
-            verifyEmail(document.form.email),
-            verifyInput(document.form.password)">
+          <button type="submit" id="submit" value="Submit">
             Claim your free trial
           </button>
           <p>
