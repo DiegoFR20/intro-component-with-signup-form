@@ -40,17 +40,21 @@
           Try it free 7 days <span>then $20/mo. thereafter</span>
         </p>
       </div>
-      <div id="signUp">
-        <form id="form">
+      <div id="signUp" name="Sign up">
+        <form id="sign" name="form">
           <label for="fName" name="First Name"></label>
-          <input type="text" placeholder="First Name" id="fName" name="First Name"> <br>
+          <input type="text" placeholder="First Name" id="fName" name="First Name">
           <label for="lName" name="Last Name"></label>
-          <input type="text" placeholder="Last Name" id="lName" name="Last Name"> <br>
+          <input type="text" placeholder="Last Name" id="lName" name="Last Name">
           <label for="email" name="Email"></label>
-          <input type="email" placeholder="Email Address" id="email" name="Email"> <br>
+          <input type="email" placeholder="Email Address" id="email" name="Email">
           <label for="password" name="Password"></label>
-          <input type="password" placeholder="Password" id="password" name="Password"> <br>
-          <button type="submit" id="submit" value="Submit">
+          <input type="password" placeholder="Password" id="password" name="Password">
+          <button type="submit" id="submit" value="Submit" onclick="
+            verifyInput(document.form.fName),
+            verifyInput(document.form.lName),
+            verifyEmail(document.form.email),
+            verifyInput(document.form.password)">
             Claim your free trial
           </button>
           <p>
