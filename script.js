@@ -1,6 +1,6 @@
 function generateError(target) {
-    var targetId = target.id.toString();
-    console.log(targetId, typeof(targetId));
+    let targetId = target.id.toString();
+    console.log(targetId);
     targetDiv = document.getElementById(targetId);
 
     target.style.border = "2px solid var(--red)";
@@ -23,7 +23,7 @@ function generateError(target) {
     errorDiv.appendChild(errorIcon);
     targetDiv.appendChild(errorDiv);
     setTimeout(() => {
-        if(target.id== "email"){
+        if (target.id == "email") {
             target.setAttribute("class", "");
             target.placeholder = "Email Address";
         }

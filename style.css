@@ -95,6 +95,7 @@ p{
     max-height: 50px;
     padding: 20px;
     margin-bottom: 20px;
+    border: 1.25px solid hsla(249, 10%, 26%, 0.25);
     box-shadow: 0 7px 1px hsla(249, 10%, 26%, 0.25);
 }
 
@@ -141,12 +142,12 @@ input:focus{
     height: 53px;
     color: white;
     text-transform: uppercase;
-    border: 0;
     border-radius: 7px;
     background: var(--green);
     font-family: "Poppins500";
     font-size: 1em;
-    box-shadow: 0 4px 1px hsla(154, 59%, 44%);
+    border: 1.25px solid  hsl(154, 59%, 44%);
+    box-shadow: 0 4px 1px hsl(154, 59%, 44%);
     outline: none;
 }
 
