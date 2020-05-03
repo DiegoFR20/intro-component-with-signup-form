@@ -1,25 +1,33 @@
-var contError = 0;
-
 function generateError(target) {
-    console.log(target.name);
-    target.style.borderColor = "var(--red)";
+    var targetId = target.id.toString();
+    console.log(targetId, typeof(targetId));
+    targetDiv = document.getElementById(targetId);
+
+    target.style.border = "2px solid var(--red)";
     errorDiv = document.createElement("div");
     errorParagraph = document.createElement("p");
-    errorDiv.setAttribute("id", "error");
-    target.appendChild(errorDiv);
+    errorParagraph.style.color = "red";
+    errorParagraph.setAttribute("class", "error");
     if (target.id == 'email') {
+        target.setAttribute("class", "errorPlace");
+        target.value = "";
+        target.placeholder = "email@example/com";
         errorMessage = document.createTextNode(`Looks like this is not an ${target.id}`);
     } else
-    errorMessage = document.createTextNode(`${target.name} cannot be empty`);
+        errorMessage = document.createTextNode(`${target.name} cannot be empty`);
     errorParagraph.appendChild(errorMessage);
     errorDiv.appendChild(errorParagraph);
     errorIcon = document.createElement("img");
-    errorIcon.setAttribute("src", "images/icon-error.svg");
     errorIcon.setAttribute("alt", "Error Icon");
+    errorIcon.setAttribute("src", "images/icon-error.svg");
     errorDiv.appendChild(errorIcon);
+    targetDiv.appendChild(errorDiv);
     setTimeout(() => {
-        target.style.borderColor = "";
-        target.removeChild(errorDiv);
+        if(target.id== "email"){
+            target.setAttribute("class", "");
+            target.placeholder = "Email Address";
+        }
+        target.style.border = "";
     }, 5000);
 }
 
