@@ -36,11 +36,11 @@ function generateError(div, field) {
         errorIcon.setAttribute("src", "images/icon-error.svg");
         errorIcon.setAttribute("Alt", "Error Icon");
         errorIcon.style.float = "right";
-        if(containerWidth==350){
+        if (containerWidth == 350) {
             errorIcon.style.transform = "translate(-15px, -53px)";
             errorParagraph.style.float = "right";
             errorParagraph.style.transform = "translate(32px, 10px)";
-        }else{
+        } else {
             tryIt.style.transform = "translateY(-40px)";
             signUp.style.height = "480px";
             signUp.style.marginTop = "20px";
@@ -64,13 +64,9 @@ function generateError(div, field) {
 }
 
 function removeError(div, field) {
-    try {
-        console.log(`errorDiv ${errorDiv}`);
-        div.removeChild(errorDiv);
-        field.style.borderColor = "";
-    } catch (e) {
-        console.log(`${div} erro`);
-    }
+    console.log(`errorDiv ${errorDiv}`);
+    div.removeChild(errorDiv);
+    field.style.borderColor = "";
 }
 
 function verifyInput(div, field) {
