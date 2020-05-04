@@ -1,44 +1,85 @@
-const signUp = document.getElementById("signUp");
+var fNameErrorCont = 0;
+var lNameErrorCont = 0;
+var emailErrorCont = 0;
+var passwordErrorCont = 0;
+var container = document.getElementById("container");
+var containerWidth = parseInt(container.offsetWidth);
+var signUp = document.getElementById("signUp");
+var tryIt = document.getElementById("tryIt");
 
 function generateError(div, field) {
-    field.style.border = "2px solid var(--red)";
-    errorDiv = document.createElement("div");
-    errorDiv.style.transform = "translate(125px, -12px)";
-    errorParagraph = document.createElement("p");
-    errorParagraph.setAttribute("class", "error");
-    errorParagraph.style.fontFamily = "Poppins500";
-    errorParagraph.style.color = "var(--red)";
-    div.appendChild(errorDiv);
-    if (field.id == 'userEmail') {
-        field.setAttribute("class", "errorPlace");
-        field.value = "";
-        field.placeholder = "email@example/com";
-        errorMessage = document.createTextNode(`Looks like this is not an ${field.name}`);
-    } else
-        errorMessage = document.createTextNode(`${field.name} cannot be empty`);
-    errorParagraph.appendChild(errorMessage);
-    errorDiv.appendChild(errorParagraph);
-    errorIcon = document.createElement("img");
-    errorIcon.setAttribute("src", "images/icon-error.svg");
-    errorIcon.setAttribute("Alt", "Error Icon");
-    errorIcon.style.transform = "translate(40px, -58px)";
-    errorDiv.appendChild(errorIcon);
-    setTimeout(() => {
-        if (field.id == "email") {
-            field.setAttribute("class", "");
-            field.placeholder = "Email Address";
+    var errorClass = "";
+    var errorName = field.id;
+    errorClass = errorName.concat("class");
+    var error = document.getElementsByClassName(errorClass);
+    var errorContName = errorName.concat("ErrorCont");
+    var errorCont = eval(errorContName);
+    if (eval(errorCont) == 0) {
+        field.style.border = "2px solid var(--red)";
+        errorDiv = document.createElement("div");
+        errorParagraph = document.createElement("p");
+        errorParagraph.setAttribute("class", "errorClass");
+        errorParagraph.style.fontFamily = "Poppins500";
+        errorParagraph.style.marginTop = "-9px";
+        errorParagraph.style.color = "var(--red)";
+        div.appendChild(errorDiv);
+        if (field.id == 'email') {
+            field.setAttribute("class", "errorPlace");
+            field.value = "";
+            field.placeholder = "email@example/com";
+            errorMessage = document.createTextNode(`Looks like this is not an ${field.name}`);
+        } else
+            errorMessage = document.createTextNode(`${field.name} cannot be empty`);
+        errorParagraph.appendChild(errorMessage);
+        errorDiv.appendChild(errorParagraph);
+        errorIcon = document.createElement("img");
+        errorIcon.setAttribute("src", "images/icon-error.svg");
+        errorIcon.setAttribute("Alt", "Error Icon");
+        errorIcon.style.float = "right";
+        if(containerWidth==350){
+            errorIcon.style.transform = "translate(-15px, -53px)";
+            errorParagraph.style.float = "right";
+            errorParagraph.style.transform = "translate(32px, 10px)";
+        }else{
+            tryIt.style.transform = "translateY(-40px)";
+            signUp.style.height = "480px";
+            signUp.style.marginTop = "20px";
+            div.style.marginBottom = "-20px";
+            signUp.style.transform = "translateY(-40px)";
+            errorIcon.style.transform = "translate(380px, -53px)";
+            errorParagraph.style.float = "right";
+            errorParagraph.style.transform = "translateX(85px)";
         }
-        field.style.border = "";
-        field.removeChild(errorDiv);
-    }, 5000);
+        errorIcon.style.position = "relative";
+        errorDiv.appendChild(errorIcon);
+        if (field.id == "fName") {
+            fNameErrorCont++;
+        } else if (field.id == "lName") {
+            lNameErrorCont++;
+        } else if (field.id == "email") {
+            emailErrorCont++;
+        } else if (field.id == "password")
+            passwordErrorCont++;
+    }
+}
+
+function removeError(div, field) {
+    try {
+        console.log(`errorDiv ${errorDiv}`);
+        div.removeChild(errorDiv);
+        field.style.borderColor = "";
+    } catch (e) {
+        console.log(`${div} erro`);
+    }
 }
 
 function verifyInput(div, field) {
     if (field.value == "") {
         generateError(div, field);
         event.preventDefault();
-    } else
+    } else {
         field.style.borderColor = "";
+    }
 }
 
 function validateEmail(email) {
@@ -53,6 +94,7 @@ function verifyEmail(div, email) {
     if (validateEmail(email) == false) {
         generateError(div, email);
         event.preventDefault();
-    } else
+    } else {
         email.style.borderColor = "";
+    }
 }

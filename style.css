@@ -276,11 +276,6 @@ input:focus{
     }
 
     #signUp a {
-        
         font-family: "Poppins700";
-    }
-
-    .field{
-        height: 80px;
     }
 }
