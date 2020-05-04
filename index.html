@@ -42,18 +42,26 @@
       </div>
       <div id="signUp" name="Sign up">
         <form id="sign" name="form" onsubmit="
-            verifyInput(fName),
-            verifyInput(lName),
-            verifyEmail(email), 
-            verifyInput(userPassword)">
-          <label for="fName" name="First Name"></label>
-          <input type="text" placeholder="First Name" id="fName" name="First Name">
-          <label for="lName" name="Last Name"></label>
-          <input type="text" placeholder="Last Name" id="lName" name="Last Name">
-          <label for="email" name="Email"></label>
-          <input type="text" placeholder="Email Address" id="email" name="Email">
-          <label for="password" name="Password"></label>
-          <input type="password" placeholder="Password" id="userPassword" name="Password">
+            verifyInput(userFirstName, fName),
+            verifyInput(userLastName, lName),
+            verifyEmail(email, userEmail),
+            verifyInput(userPassword, password)">
+          <div id="userFirstName" class="field">
+            <label for="fName" name="First Name"></label>
+            <input type="text" placeholder="First Name" id="fName" name="First Name">
+          </div>
+          <div id="userLastName"  class="field">
+            <label for="lName" name="Last Name"></label>
+            <input type="text" placeholder="Last Name" id="lName" name="Last Name">
+          </div>
+          <div id="email"  class="field">
+            <label for="email" name="Email"></label>
+            <input type="text" placeholder="Email Address" id="userEmail" name="Email">
+          </div>
+          <div id="userPassword"  class="field">
+            <label for="password" name="Password"></label>
+            <input type="password" placeholder="Password" id="password" name="Password">
+          </div>
           <button type="submit" id="submit" value="Submit">
             Claim your free trial
           </button>

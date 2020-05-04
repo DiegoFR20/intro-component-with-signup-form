@@ -173,15 +173,6 @@ input:focus{
     color: var(--red);
 }
 
-.error p{
-    font-family: "Poppins400";
-    color: var(--red);
-}
-
-.error img{
-    transform: translate(-75px, 60px);
-}
-
 @media only screen and (min-width: 1440px){
     html{
         height: 800px;
@@ -287,5 +278,9 @@ input:focus{
     #signUp a {
         
         font-family: "Poppins700";
+    }
+
+    .field{
+        height: 80px;
     }
 }

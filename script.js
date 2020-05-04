@@ -1,42 +1,44 @@
-function generateError(target) {
-    let targetId = target.id.toString();
-    console.log(targetId);
-    targetDiv = document.getElementById(targetId);
+const signUp = document.getElementById("signUp");
 
-    target.style.border = "2px solid var(--red)";
+function generateError(div, field) {
+    field.style.border = "2px solid var(--red)";
     errorDiv = document.createElement("div");
+    errorDiv.style.transform = "translate(125px, -12px)";
     errorParagraph = document.createElement("p");
-    errorParagraph.style.color = "red";
     errorParagraph.setAttribute("class", "error");
-    if (target.id == 'email') {
-        target.setAttribute("class", "errorPlace");
-        target.value = "";
-        target.placeholder = "email@example/com";
-        errorMessage = document.createTextNode(`Looks like this is not an ${target.id}`);
+    errorParagraph.style.fontFamily = "Poppins500";
+    errorParagraph.style.color = "var(--red)";
+    div.appendChild(errorDiv);
+    if (field.id == 'userEmail') {
+        field.setAttribute("class", "errorPlace");
+        field.value = "";
+        field.placeholder = "email@example/com";
+        errorMessage = document.createTextNode(`Looks like this is not an ${field.name}`);
     } else
-        errorMessage = document.createTextNode(`${target.name} cannot be empty`);
+        errorMessage = document.createTextNode(`${field.name} cannot be empty`);
     errorParagraph.appendChild(errorMessage);
     errorDiv.appendChild(errorParagraph);
     errorIcon = document.createElement("img");
-    errorIcon.setAttribute("alt", "Error Icon");
     errorIcon.setAttribute("src", "images/icon-error.svg");
+    errorIcon.setAttribute("Alt", "Error Icon");
+    errorIcon.style.transform = "translate(40px, -58px)";
     errorDiv.appendChild(errorIcon);
-    targetDiv.appendChild(errorDiv);
     setTimeout(() => {
-        if (target.id == "email") {
-            target.setAttribute("class", "");
-            target.placeholder = "Email Address";
+        if (field.id == "email") {
+            field.setAttribute("class", "");
+            field.placeholder = "Email Address";
         }
-        target.style.border = "";
+        field.style.border = "";
+        field.removeChild(errorDiv);
     }, 5000);
 }
 
-function verifyInput(id) {
-    if (id.value == "") {
-        generateError(id);
+function verifyInput(div, field) {
+    if (field.value == "") {
+        generateError(div, field);
         event.preventDefault();
     } else
-        id.style.borderColor = "";
+        field.style.borderColor = "";
 }
 
 function validateEmail(email) {
@@ -47,9 +49,9 @@ function validateEmail(email) {
         return false;
 }
 
-function verifyEmail(email) {
+function verifyEmail(div, email) {
     if (validateEmail(email) == false) {
-        generateError(email);
+        generateError(div, email);
         event.preventDefault();
     } else
         email.style.borderColor = "";
